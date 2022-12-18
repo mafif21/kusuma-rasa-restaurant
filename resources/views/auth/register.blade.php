@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" novalidate>
         @csrf
 
         <!-- Name -->
@@ -40,8 +40,9 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+            <small>Already have account?</small> &nbsp;
+            <a class="text-decoration-none text-sm text-orange-600 hover:font-semibold rounded-md focus:outline-none" href="{{ route('login') }}">
+                {{ __('Login') }}
             </a>
 
             <x-primary-button class="ml-4">
