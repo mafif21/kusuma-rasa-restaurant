@@ -15,4 +15,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/about', 'about')->name('about');
 });
 
+// Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+//     Route::view('/dashboard', 'adminDashboard');
+// });
+
 require __DIR__ . '/auth.php';
