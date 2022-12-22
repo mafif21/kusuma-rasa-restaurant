@@ -8,14 +8,22 @@
         <title>{{ $title ?? config('app.name') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <div class="{{ request()->routeIs('home') ? 'bg-cover bg-bottom bg-fixed bg-hero-image' : '' }}" >
+                @include('layouts.navigation')
+
+                @isset($hero)
+                    <x-container>
+                        {{ $hero }}
+                    </x-container>
+                @endisset
+            </div>
 
             <!-- Page Heading -->
                 @isset($header)
@@ -28,8 +36,13 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <x-container>
+                    {{ $slot }}
+                </x-container>
             </main>
+
+            @include('layouts.footer')
+
         </div>
     </body>
 </html>
