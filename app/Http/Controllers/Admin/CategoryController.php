@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -38,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/images/categories');
+        $image = $request->file('image')->store('public/categories');
 
         $validate = [
             "name" => $request->name,
@@ -58,7 +59,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
     }
 
     /**
@@ -69,7 +69,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        dd($category);
     }
 
     /**
@@ -92,6 +92,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->image) {
+            Storage::delete($category->image);
+        };
+
+        Category::destroy($category->id);
+        return to_route('admin.category.index');
     }
 }

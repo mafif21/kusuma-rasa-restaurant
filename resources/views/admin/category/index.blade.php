@@ -39,21 +39,25 @@
                 <tbody>
                     @foreach ($categories as $category)
                     <tr class="bg-white border-b hover:bg-gray-200">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                             {{ $category->name }}
                         </th>
                         <td class="py-4 px-6">
-                            
+                            <img src="{{ Storage::url($category->image) }}" alt="category img" class="w-60 rounded">
                         </td>
                         <td class="py-4 px-6">
-                            {{ $category->description }}
+                            {{ Str::limit($category->description, 120, '...') }}
+                            {{-- {{ $category->description }} --}}
                         </td>
-                        <td class="py-4 px-6 text-right flex gap-4">
-                            <a href="#" class="font-medium text-blue-600">Edit</a>
-                            <form action="" method="post" id="delete">
-                                @csrf
-                                <button type="submit" class="font-medium text-red-600">Delete</button>
-                            </form>
+                        <td class="py-4 px-6">
+                            <div class="flex gap-4 items-center">
+                                <a href="{{ route('admin.category.edit', $category->id) }}" class="font-medium text-blue-600">Edit</a>
+                                <form action="{{ route('admin.category.destroy', $category->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="submit" class="font-medium text-red-600">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
