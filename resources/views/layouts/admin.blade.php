@@ -29,7 +29,7 @@
                         <x-admin-nav-link :href="route('admin.menu.index')" :active="request()->routeIs('admin.menu.index')">
                             {{ __('Menu') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category.index')">
+                        <x-admin-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category*.index')">
                             {{ __('Categories') }}
                         </x-admin-nav-link>
                         <x-admin-nav-link :href="route('admin.table.index')" :active="request()->routeIs('admin.table.index')">
@@ -52,6 +52,7 @@
                                         <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                             {{ __('Log Out') }}
                                         </x-dropdown-link>
+                                        <a href="/" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Homepage</a>
                                     </form>
                                 </div>
                             </div>
@@ -66,6 +67,6 @@
             </main>
         </div>
 
-        
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
