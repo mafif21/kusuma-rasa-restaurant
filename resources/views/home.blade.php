@@ -39,13 +39,10 @@
 
         <div class="fav my-12">
             <h1 class="font-black text-3xl text-center">Categories Of Food</h1>
-            <div class="grid lg:grid-cols-3 my-6 gap-y-6">
-                <x-card-categories imageLink="{{ asset('images/categories/kuah.jpg') }}" title="Kuah" desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae expedita tempore, neque iusto consectetur perferendis?"></x-card-categories>
-
-                <x-card-categories imageLink="{{ asset('images/categories/goreng.jpg') }}" title="Goreng" desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae expedita tempore, neque iusto consectetur perferendis?"></x-card-categories>
-
-                <x-card-categories imageLink="{{ asset('images/categories/bakar.jpg') }}" title="Bakar" desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae expedita tempore, neque iusto consectetur perferendis?"></x-card-categories>
-
+            <div class="grid lg:grid-cols-3 my-6 gap-y-6 justify-items-center">
+                @foreach ($categories as $category)
+                    <x-card-categories imageLink="{{ Storage::url($category->image) }}" title="{{ $category->name }}" desc="{{ $category->description }}"></x-card-categories>
+                @endforeach
             </div>
         </div>
     </x-slot>
