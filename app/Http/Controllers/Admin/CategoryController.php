@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -69,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        dd($category);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -81,7 +82,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "image" => "required|file|image",
+            "description" => "required"
+        ]);
+
+        $image = $category->image;
+        if ($request->hasFile('image')) {
+            Storage::delete($category->image);
+            $image = $request->file('image')->store('public/categories');
+        }
+
+        $category->update([
+            "name" => $request->name,
+            "image" => $image,
+            "description" => $request->description
+        ]);
+
+        return to_route('admin.category.index');
     }
 
     /**
