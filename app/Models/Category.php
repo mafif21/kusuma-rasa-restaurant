@@ -12,6 +12,11 @@ class Category extends Model
 
     protected $fillable = ["name", "description", "image"];
 
+    public function menu()
+    {
+        return $this->hasMany(Menu::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
