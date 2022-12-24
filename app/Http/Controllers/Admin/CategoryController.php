@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $validate = [
             "name" => $request->name,
             "description" => $request->description,
-            "image" => $image
+            "image" => $image,
         ];
 
         Category::create($validate);
@@ -84,8 +84,8 @@ class CategoryController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "image" => "required|file|image",
-            "description" => "required"
+            "image" => "file|image",
+            "description" => "required",
         ]);
 
         $image = $category->image;
@@ -97,7 +97,7 @@ class CategoryController extends Controller
         $category->update([
             "name" => $request->name,
             "image" => $image,
-            "description" => $request->description
+            "description" => $request->description,
         ]);
 
         return to_route('admin.category.index');

@@ -51,8 +51,8 @@
                         </td>
                         <td class="py-4 px-6">
                             <div class="flex gap-4 items-center">
-                                <a href="{{ route('admin.category.edit', $category->id) }}" class="font-medium text-blue-600">Edit</a>
-                                <form action="{{ route('admin.category.destroy', $category->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                                <a href="{{ route('admin.category.edit', $category->slug) }}" class="font-medium text-blue-600">Edit</a>
+                                <form action="{{ route('admin.category.destroy', $category->slug) }}" method="post" onsubmit="return confirm('Are you sure?')">
                                     @csrf
                                     @method("DELETE")
                                     <button type="submit" class="font-medium text-red-600">Delete</button>
