@@ -24,7 +24,7 @@ class MenuStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|unique:categories",
+            "name" => "required|unique:menus",
             "description" => "required",
             "image" => "required|file|image",
             "price" => "required|integer"
