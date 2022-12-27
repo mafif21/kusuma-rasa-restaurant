@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Menu;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuStoreRequest;
-use App\Models\Category;
-use App\Models\Menu;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -55,7 +56,7 @@ class MenuController extends Controller
             $menu->categories()->attach($request->category);
         }
 
-        return to_route('admin.category.index');
+        return to_route('admin.menu.index');
     }
 
     /**
@@ -77,7 +78,8 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        $categories = Category::all();
+        return view('admin.menu.edit', compact('menu', 'categories'));
     }
 
     /**
@@ -89,7 +91,31 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "image" => "file|image",
+            "description" => "required",
+            "price" => "required|integer"
+        ]);
+
+        $image = $menu->image;
+        if ($request->hasFile('image')) {
+            Storage::delete($menu->image);
+            $image = $request->file('image')->store('public/menus');
+        }
+
+        $menu->update([
+            "name" => $request->name,
+            "image" => $image,
+            "description" => $request->description,
+            "price" => $request->price
+        ]);
+
+        if ($request->has('category')) {
+            $menu->categories()->sync($request->category);
+        }
+
+        return to_route('admin.menu.index');
     }
 
     /**
@@ -100,6 +126,13 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        if ($menu->image) {
+            Storage::delete($menu->image);
+        };
+
+        Menu::destroy($menu->id);
+        $menu->categories()->detach($menu->categories);
+
+        return to_route('admin.menu.index');
     }
 }

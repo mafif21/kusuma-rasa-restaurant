@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-slot name="title">Admin Category</x-slot>
+    <x-slot name="title">Admin Menu</x-slot>
   
     <x-slot name="slot">
       <div class="flex justify-between mb-5 items-center">
@@ -49,7 +49,7 @@
                             {{ $menu->name }}
                         </th>
                         <td class="py-4 px-6">
-                            <img src="{{ Storage::url($menu->image) }}" alt="category img" class="w-20 rounded">
+                            <img src="{{ Storage::url($menu->image) }}" alt="menu img" class="w-20 rounded">
                         </td>
                         <td class="py-4 px-6">
                             <ul>
@@ -67,8 +67,8 @@
                         </td>
                         <td class="py-4 px-6">
                             <div class="flex gap-4 items-center">
-                                <a href="" class="font-medium text-blue-600">Edit</a>
-                                <form action="" method="post" onsubmit="return confirm('Are you sure?')">
+                                <a href="{{ route('admin.menu.edit', $menu->id) }}" class="font-medium text-blue-600">Edit</a>
+                                <form action="{{ route('admin.menu.destroy', $menu->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                                     @csrf
                                     @method("DELETE")
                                     <button type="submit" class="font-medium text-red-600">Delete</button>

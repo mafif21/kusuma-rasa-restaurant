@@ -14,8 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories_menu', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('menu_id')->constrained();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('menu_id');
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
         });
     }
 
