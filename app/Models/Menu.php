@@ -16,6 +16,15 @@ class Menu extends Model
     //     return $this->belongsToMany(Category::class, 'categories_menu');
     // }
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            return $query->whereHas('categories', function ($query) use ($category) {
+                $query->where('slug', $category);
+            });
+        });
+    }
+
     public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id');

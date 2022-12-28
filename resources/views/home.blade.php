@@ -8,7 +8,7 @@
         </div>
 
         <div class="grid grid-cols-2 lg:w-1/4 gap-x-2.5 mb-6">
-            <a href="/menu" class="bg-red-600 rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-white hover:opacity-50 text-center">View Menu</a>
+            <a href="/order" class="bg-red-600 rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-white hover:opacity-50 text-center">View Menu</a>
             <a href="wa" class="bg-white rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-red-600 hover:opacity-50 text-center">Online Order</a>
         </div>
     </x-slot>
@@ -41,7 +41,7 @@
             <h1 class="font-black text-3xl text-center">Categories Of Food</h1>
             <div class="grid lg:grid-cols-3 my-6 gap-y-6 justify-items-center">
                 @foreach ($categories as $category)
-                    <x-card-categories imageLink="{{ Storage::url($category->image) }}" title="{{ $category->name }}" desc="{{ $category->description }}"></x-card-categories>
+                    <x-card-categories imageLink="{{ Storage::url($category->image) }}" title="{{ $category->name }}" desc="{{ $category->description }}" foodCategory="{{ $category->slug }}"></x-card-categories>
                 @endforeach
             </div>
         </div>
