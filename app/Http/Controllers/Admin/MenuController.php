@@ -47,15 +47,16 @@ class MenuController extends Controller
             "name" => $request->name,
             "description" => $request->description,
             "image" => $image,
-            "price" => $request->price
+            "price" => $request->price,
+            "category_id" => $request->category
         ];
 
-        $menu = Menu::create($validate);
+        // $menu = Menu::create($validate);
+        // if ($request->has('category')) {
+        //     $menu->categories()->attach($request->category);
+        // }
 
-        if ($request->has('category')) {
-            $menu->categories()->attach($request->category);
-        }
-
+        Menu::create($validate);
         return to_route('admin.menu.index');
     }
 
@@ -108,12 +109,13 @@ class MenuController extends Controller
             "name" => $request->name,
             "image" => $image,
             "description" => $request->description,
-            "price" => $request->price
+            "price" => $request->price,
+            "category_id" => $request->category
         ]);
 
-        if ($request->has('category')) {
-            $menu->categories()->sync($request->category);
-        }
+        // if ($request->has('category')) {
+        //     $menu->categories()->sync($request->category);
+        // }
 
         return to_route('admin.menu.index');
     }
@@ -131,7 +133,7 @@ class MenuController extends Controller
         };
 
         Menu::destroy($menu->id);
-        $menu->categories()->detach($menu->categories);
+        // $menu->categories()->detach($menu->categories);
 
         return to_route('admin.menu.index');
     }

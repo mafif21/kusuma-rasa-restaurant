@@ -9,7 +9,7 @@
           <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Halo admin {{ auth()->user()->name}} silahkan tambah, edit atau hapus menu yang tersedia, Have a nice day</p>
         </div>
 
-        <form method="post" action="{{ route('admin.menu.update', $menu->id) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('admin.menu.update', $menu->slug) }}" enctype="multipart/form-data">
           @csrf
           @method("PUT")
           <div class="mb-6">
@@ -32,14 +32,17 @@
 
           <div class="mb-6">
             <label for="category" class="block mb-2 text-sm font-medium text-gray-900 font-semibold">Menu Category</label>
-            <div id="category" >
-              @foreach ($categories as $category)
-                <div class="flex items-center mb-4">
-                  <input id="{{ $category->name }}" type="checkbox" value="{{ $category->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500  focus:ring-2" name="category[]" @checked($menu->categories->contains($category))>
-                  {{-- @checked($menu->categories->contains($categories)) --}}
-                  <label for="{{ $category->name }}" class="ml-2 text-sm font-medium text-gray-400 dark:text-gray-500">{{ $category->name }}</label>
-                </div>
-              @endforeach
+            <div id="category">
+              <ul class="w-48 text-sm font-medium text-gray-900 bg-gray-50 rounded-lg border border-gray-200">
+                @foreach ($categories as $category)
+                <li class="w-full rounded-t-lg border-b border-gray-200">
+                  <div class="flex items-center pl-3">
+                      <input id="radio-title" type="radio" value="{{ $category->id }}" name="category" class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500"  @checked($category->id == $menu->category_id ? "checked" : "")>
+                      <label for="radio-title" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">{{ $category->name }}</label>
+                  </div>
+                </li>
+                @endforeach
+              </ul>
             </div>
           </div>
 

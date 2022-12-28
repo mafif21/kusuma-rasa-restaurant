@@ -12,9 +12,14 @@ class Category extends Model
 
     protected $fillable = ["name", "description", "image"];
 
+    // public function menus()
+    // {
+    //     return $this->belongsToMany(Menu::class, 'categories_menu');
+    // }
+
     public function menus()
     {
-        return $this->belongsToMany(Menu::class, 'categories_menu');
+        return $this->hasMany(Menu::class);
     }
 
     public function getRouteKeyName()

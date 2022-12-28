@@ -6,7 +6,7 @@
       <div class="border border-gray-200 shadow-md w-9/12 p-20 rounded-lg">
         <div class="mb-6">
           <h1 class="font-semibold text-xl mb-1 text-slate-900">Add New Menu</h1>
-          <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Halo admin {{ auth()->user()->name}} silahkan tambah, edit atau hapus menu yang tersedia, Have a nice day</p>
+          <p class="mt-1 text-sm font-normal text-gray-500">Halo admin {{ auth()->user()->name}} silahkan tambah, edit atau hapus menu yang tersedia, Have a nice day</p>
         </div>
 
         <form method="post" action="{{ route('admin.menu.store') }}" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
 
           <div class="mb-6">
             <label for="file_input" class="block mb-2 text-sm font-medium text-gray-900 font-semibold">Image</label>
-            <input name="image" class="block p-3 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file">
+            <input name="image" class="block p-3 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
           </div>
 
@@ -31,13 +31,17 @@
 
           <div class="mb-6">
             <label for="category" class="block mb-2 text-sm font-medium text-gray-900 font-semibold">Menu Category</label>
-            <div id="category" >
-              @foreach ($categories as $category)
-                <div class="flex items-center mb-4">
-                  <input id="{{ $category->name }}" type="checkbox" value="{{ $category->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500  focus:ring-2" name="category[]">
-                  <label for="{{ $category->name }}" class="ml-2 text-sm font-medium text-gray-400 dark:text-gray-500">{{ $category->name }}</label>
-                </div>
-              @endforeach
+            <div id="category">
+              <ul class="w-48 text-sm font-medium text-gray-900 bg-gray-50 rounded-lg border border-gray-200">
+                @foreach ($categories as $category)
+                <li class="w-full rounded-t-lg border-b border-gray-200">
+                  <div class="flex items-center pl-3">
+                      <input id="radio-title" type="radio" value="{{ $category->id }}" name="category" class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 ">
+                      <label for="radio-title" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">{{ $category->name }}</label>
+                  </div>
+                </li>
+                @endforeach
+              </ul>
             </div>
           </div>
 
@@ -47,7 +51,7 @@
             <x-input-error :messages="$errors->get('description')" class="mt-2" />
           </div>
           
-          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add menu</button>
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add menu</button>
         </form>
         
       </div>

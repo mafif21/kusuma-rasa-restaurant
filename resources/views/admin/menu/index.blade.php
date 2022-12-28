@@ -52,12 +52,7 @@
                             <img src="{{ Storage::url($menu->image) }}" alt="menu img" class="w-20 rounded">
                         </td>
                         <td class="py-4 px-6">
-                            <ul>
-                                @foreach ($menu->categories as $category)
-                                <li>- {{ $category->name }}</li>
-                                @endforeach
-                            </ul>
-                            
+                            {{ $menu->categories->name }}
                         </td>
                         <td class="py-4 px-6">
                             Rp. @money($menu->price)

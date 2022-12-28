@@ -9,11 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory, Sluggable;
-    protected $fillable = ["name", "description", "image", "price"];
+    protected $fillable = ["name", "description", "image", "price", "category_id"];
+
+    // public function categories()
+    // {
+    //     return $this->belongsToMany(Category::class, 'categories_menu');
+    // }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'categories_menu');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function getRouteKeyName()
