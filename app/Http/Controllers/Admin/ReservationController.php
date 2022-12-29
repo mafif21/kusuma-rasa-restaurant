@@ -96,6 +96,7 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        //
+        Reservation::destroy($reservation->id);
+        return to_route('admin.reservation.index');
     }
 }

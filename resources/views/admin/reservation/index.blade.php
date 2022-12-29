@@ -62,8 +62,8 @@
                             </td>
                             <td class="py-4 px-6">
                                 <div class="flex gap-4 items-center">
-                                    <a href="{{ route('admin.menu.edit', 12) }}" class="font-medium text-blue-600">Edit</a>
-                                    <form action="{{ route('admin.menu.destroy', 12) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                                    <a href="{{ route('admin.reservation.edit', $reservation->id) }}" class="font-medium text-blue-600">Edit</a>
+                                    <form action="{{ route('admin.reservation.destroy', $reservation->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="font-medium text-red-600">Delete</button>
