@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->integer('guest_number');
             $table->string('status')->default('avaliable');
             $table->string('location');
