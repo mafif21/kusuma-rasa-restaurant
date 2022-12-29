@@ -68,7 +68,7 @@ class TableController extends Controller
      */
     public function edit(Table $table)
     {
-        //
+        return view('admin.table.edit', compact('table'));
     }
 
     /**
@@ -80,7 +80,21 @@ class TableController extends Controller
      */
     public function update(Request $request, Table $table)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "guest_number" => "required|integer",
+            "status" => "required",
+            "location" => "required"
+        ]);
+
+        $table->update([
+            "name" => $request->name,
+            "guest_number" => $request->guest_number,
+            "status" => $request->status,
+            "location" => $request->location,
+        ]);
+
+        return to_route('admin.table.index');
     }
 
     /**
@@ -91,6 +105,7 @@ class TableController extends Controller
      */
     public function destroy(Table $table)
     {
-        //
+        Table::destroy($table->id);
+        return to_route('admin.table.index');
     }
 }
