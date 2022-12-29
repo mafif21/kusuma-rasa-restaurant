@@ -18,6 +18,11 @@ class Table extends Model
         "location" => TableLocation::class
     ];
 
+    public function reservations()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
