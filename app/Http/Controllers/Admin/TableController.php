@@ -46,7 +46,7 @@ class TableController extends Controller
         ];
 
         Table::create($validate);
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('success', 'Add Table Success');
     }
 
     /**
@@ -94,7 +94,7 @@ class TableController extends Controller
             "location" => $request->location,
         ]);
 
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('edit', 'Edit Table Success');
     }
 
     /**
@@ -106,6 +106,6 @@ class TableController extends Controller
     public function destroy(Table $table)
     {
         Table::destroy($table->id);
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('delete', 'Delete Table Success');
     }
 }

@@ -37,7 +37,7 @@
 
           <div class="mb-6">
             <label for="date" class="block mb-2 text-sm font-medium text-gray-900 font-semibold">Booking Date</label>
-            <input type="date" id="date" name="res_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-3 " value="{{ old('res_date') }}">
+            <input type="datetime-local" id="date" name="res_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-3 " value="{{ old('res_date') }}">
             <x-input-error :messages="$errors->get('res_date')" class="mt-2" />
           </div>
 

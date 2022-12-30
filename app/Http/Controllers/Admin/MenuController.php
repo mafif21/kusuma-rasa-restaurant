@@ -57,7 +57,7 @@ class MenuController extends Controller
         // }
 
         Menu::create($validate);
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('success', 'Add Menu Success');
     }
 
     /**
@@ -117,7 +117,7 @@ class MenuController extends Controller
         //     $menu->categories()->sync($request->category);
         // }
 
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('edit', 'Edit Menu Success');
     }
 
     /**
@@ -135,6 +135,6 @@ class MenuController extends Controller
         Menu::destroy($menu->id);
         // $menu->categories()->detach($menu->categories);
 
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('delete', 'Delete Menu Success');
     }
 }

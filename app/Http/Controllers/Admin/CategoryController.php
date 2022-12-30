@@ -49,7 +49,7 @@ class CategoryController extends Controller
         ];
 
         Category::create($validate);
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('success', 'Add Category Success');
     }
 
     /**
@@ -100,7 +100,7 @@ class CategoryController extends Controller
             "description" => $request->description,
         ]);
 
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('edit', 'Edit Category Success');
     }
 
     /**
@@ -116,6 +116,6 @@ class CategoryController extends Controller
         };
 
         Category::destroy($category->id);
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('delete', 'Delete Category Success');
     }
 }

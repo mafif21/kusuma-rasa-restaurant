@@ -32,6 +32,9 @@
                               Phone
                           </th>
                           <th scope="col" class="py-3 px-6">
+                              Date
+                          </th>
+                          <th scope="col" class="py-3 px-6">
                                Table
                           </th>
                           <th scope="col" class="py-3 px-6">
@@ -53,6 +56,9 @@
                             </td>
                             <td class="py-4 px-6">
                                 {{ $reservation->phone }}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{ $reservation->res_date }}
                             </td>
                             <td class="py-4 px-6">
                                 {{ $reservation->table->name }}
