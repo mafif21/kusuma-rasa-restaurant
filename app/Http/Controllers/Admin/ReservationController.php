@@ -18,6 +18,7 @@ class ReservationController extends Controller
     public function index()
     {
         $reservations = Reservation::all();
+        // $phone = User::find(1)->phone;
         return view('admin.reservation.index', compact('reservations'));
     }
 
