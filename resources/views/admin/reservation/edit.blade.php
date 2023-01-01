@@ -58,7 +58,7 @@
             <label for="table" class="block mb-2 text-sm font-medium text-gray-900 font-semibold">Table</label>
             <select id="table" name="table_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               @foreach ($tables as $table)
-                <option value="{{ $table->id }}" @selected($reservation->table->id == $table->id)>{{ $table->name }} ( {{ $table->guest_number }} Person )</option>
+                <option value="{{ $table->id }}" @selected($reservation->tables->id == $table->id)>{{ $table->name }} ( {{ $table->guest_number }} Person )</option>
               @endforeach
             </select>
           </div>

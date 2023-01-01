@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\TableStatus;
 use Carbon\Carbon;
 use App\Models\Table;
 use App\Rules\DateRule;
@@ -31,7 +32,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        $tables = Table::all();
+        $tables = Table::where("status", TableStatus::Available)->get();
         return view('admin.reservation.create', compact('tables'));
     }
 
@@ -50,13 +51,14 @@ class ReservationController extends Controller
             return back()->with('warning', 'Overload Capacity');
         }
 
+        //check date
         $request_date = Carbon::parse($request->res_date);
-
         foreach ($table->reservations as $res) {
             if ($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
                 return back()->with('warning', 'Table Already Booked');
             }
         }
+
         $validate = [
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
@@ -72,17 +74,6 @@ class ReservationController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reservation $reservation)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Reservation  $reservation
@@ -90,7 +81,7 @@ class ReservationController extends Controller
      */
     public function edit(Reservation $reservation)
     {
-        $tables = Table::all();
+        $tables = Table::where("status", TableStatus::Available)->get();
         return view('admin.reservation.edit', compact('reservation', 'tables'));
     }
 
@@ -104,8 +95,20 @@ class ReservationController extends Controller
     public function update(Request $request, Reservation $reservation)
     {
         $table = Table::findOrFail($request->table_id);
+
+        // check capacity
         if ($request->guest_number > $table->guest_number) {
             return back()->with('warning', 'Overload Capacity');
+        }
+
+
+        //check date
+        $request_date = Carbon::parse($request->res_date);
+        $data = $table->reservations()->where('id', '!=', $reservation->id)->get();
+        foreach ($data as $res) {
+            if ($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
+                return back()->with('warning', 'Table Already Booked');
+            }
         }
 
         $request->validate([
