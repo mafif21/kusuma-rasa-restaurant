@@ -61,10 +61,10 @@
                                 {{ $reservation->res_date }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $reservation->table->name }}
+                                {{ $reservation->tables->name }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $reservation->guest_number }}
+                                {{ $reservation->guest_number }} Person
                             </td>
                             <td class="py-4 px-6">
                                 <div class="flex gap-4 items-center">

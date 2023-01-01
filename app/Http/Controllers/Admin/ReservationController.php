@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\Table;
+use App\Rules\DateRule;
+use App\Rules\TimeRule;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +21,6 @@ class ReservationController extends Controller
     public function index()
     {
         $reservations = Reservation::all();
-        // $phone = User::find(1)->phone;
         return view('admin.reservation.index', compact('reservations'));
     }
 
@@ -41,6 +43,20 @@ class ReservationController extends Controller
      */
     public function store(ReservationStoreRequest $request)
     {
+        $table = Table::findOrFail($request->table_id); //table info
+
+        // check capacity
+        if ($request->guest_number > $table->guest_number) {
+            return back()->with('warning', 'Overload Capacity');
+        }
+
+        $request_date = Carbon::parse($request->res_date);
+
+        foreach ($table->reservations as $res) {
+            if ($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
+                return back()->with('warning', 'Table Already Booked');
+            }
+        }
         $validate = [
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
@@ -74,7 +90,8 @@ class ReservationController extends Controller
      */
     public function edit(Reservation $reservation)
     {
-        //
+        $tables = Table::all();
+        return view('admin.reservation.edit', compact('reservation', 'tables'));
     }
 
     /**
@@ -86,7 +103,32 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        //
+        $table = Table::findOrFail($request->table_id);
+        if ($request->guest_number > $table->guest_number) {
+            return back()->with('warning', 'Overload Capacity');
+        }
+
+        $request->validate([
+            "first_name" => "required",
+            "last_name" => "required",
+            "email" => "required|email:dns",
+            "phone" => "required",
+            "res_date" => ['required', 'date', new DateRule, new TimeRule],
+            "table_id" => "required",
+            "guest_number" => "required|integer",
+        ]);
+
+        $reservation->update([
+            "first_name" => $request->first_name,
+            "last_name" =>  $request->last_name,
+            "email" =>  $request->email,
+            "phone" =>  $request->phone,
+            "res_date" =>  $request->res_date,
+            "table_id" =>  $request->table_id,
+            "guest_number" => $request->guest_number,
+        ]);
+
+        return to_route('admin.reservation.index')->with('edit', 'Edit Reservation Success');
     }
 
     /**
@@ -98,6 +140,6 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         Reservation::destroy($reservation->id);
-        return to_route('admin.reservation.index');
+        return to_route('admin.reservation.index')->with('delete', 'Delete Reservation Success');
     }
 }

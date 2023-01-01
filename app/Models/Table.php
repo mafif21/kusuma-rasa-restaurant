@@ -18,9 +18,9 @@ class Table extends Model
         "location" => TableLocation::class
     ];
 
-    public function reservation()
+    public function reservations()
     {
-        return $this->hasMany(Table::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function getRouteKeyName()
