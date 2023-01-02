@@ -28,7 +28,7 @@
 
             <div class="grid lg:grid-cols-3 gap-x-4 gap-y-10">
                 @foreach ($menus as $menu)
-                <div class="max-w-sm bg-white rounded-lg" id="card">
+                <a href="{{ route('food.show', $menu->slug) }}" class="max-w-sm bg-white rounded-lg" id="card">
                     <div class="relative">
                         <div class="hover:bg-black opacity-40 ease-in-out duration-500 w-full h-full absolute"></div>
                         <img class="rounded-t-lg h-48 w-full object-cover" src="{{ Storage::url($menu->image) }}" alt="card-image" />
@@ -43,7 +43,7 @@
                             <p class="font-normal text-sm text-gray-700">{{ Str::limit($menu->description, 100, '...') }}</p>
                         </div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
