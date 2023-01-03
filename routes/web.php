@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\TableController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Frontend\FoodController;
 use App\Http\Controllers\Frontend\OrderController;
@@ -23,6 +24,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/booking/step-two', [BookingController::class, 'stepTwo'])->name('booking.step.two');
     Route::post('/booking/step-two', [BookingController::class, 'storeStepTwo'])->name('booking.store.step.two');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add', [CartController::class, 'store'])->name('cart.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

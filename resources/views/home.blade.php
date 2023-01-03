@@ -8,7 +8,7 @@
         </div>
 
         <div class="grid grid-cols-2 lg:w-1/4 gap-x-2.5 mb-6">
-            <a href="/order" class="bg-red-600 rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-white hover:opacity-50 text-center">View Menu</a>
+            <a href="/food" class="bg-red-600 rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-white hover:opacity-50 text-center">View Menu</a>
             <a href="wa" class="bg-white rounded-lg px-6 py-3 shadow-md font-sans text-sm font-semibold text-red-600 hover:opacity-50 text-center">Online Order</a>
         </div>
     </x-slot>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="desc px-6 h-fit">
                     <h1 class="mb-3 font-bold text-3xl headings">High Quality Food Material</h1>
-                    <p class="text-gray-400 pr-12">Bahan makanan yang kurang segar dapat menyebabkan masalah kesehatan pada pelanggan Kami. Oleh karena itu, Kami memastikan semua bahan makanan yang Kami gunakan segar, yang nantinya untuk membuat makanan yang enak dan sehat bagi pelanggan Kami.</p>
+                    <p class="text-gray-400 pr-12" >Bahan makanan yang kurang segar dapat menyebabkan masalah kesehatan pada pelanggan Kami. Oleh karena itu, Kami memastikan semua bahan makanan yang Kami gunakan segar, yang nantinya untuk membuat makanan yang enak dan sehat bagi pelanggan Kami.</p>
                 </div>
             </div>
 

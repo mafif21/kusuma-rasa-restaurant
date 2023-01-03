@@ -4,6 +4,8 @@ import Alpine from "alpinejs";
 window.Alpine = Alpine;
 Alpine.start();
 
+// aos
+
 // own
 // search function
 const search = document.querySelector("#menu-search");

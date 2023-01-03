@@ -1,4 +1,4 @@
-<div class="max-w-sm rounded-lg">
+<div class="max-w-sm rounded-lg" >
   <div>
       <img class="rounded-t-lg object-cover max-h-56 w-full" src="{{ $imageLink }}" alt="card image" />
   </div>

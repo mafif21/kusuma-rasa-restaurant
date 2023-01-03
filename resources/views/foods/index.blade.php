@@ -28,29 +28,32 @@
 
             <div class="grid lg:grid-cols-3 gap-x-4 gap-y-10">
                 @foreach ($menus as $menu)
-                <a href="{{ route('food.show', $menu->slug) }}" class="max-w-sm bg-white rounded-lg" id="card">
+                <div class="max-w-sm bg-white rounded-t-lg" id="card">
                     <div class="relative">
-                        <div class="hover:bg-black opacity-40 ease-in-out duration-500 w-full h-full absolute"></div>
+                        <div class="hover:bg-black opacity-40 ease-in-out duration-500 w-full h-full absolute rounded"></div>
+                        <form action="{{ route('cart.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{ $menu->slug }}" name="slug">
+                            <button type="submit" class="px-4 py-2 text-xs font-medium text-center text-white bg-orange-400 rounded-xl absolute m-4">Add</button>
+                        </form>
                         <img class="rounded-t-lg h-48 w-full object-cover" src="{{ Storage::url($menu->image) }}" alt="card-image" />
                     </div>
-                    <div class="py-5">
+                    <a href="{{ route('food.show', $menu->slug) }}" class="py-5 block">
                         <div class="flex justify-between items-center mb-4">
                             <h5 class=" text-xl font-bold tracking-tight text-gray-900">{{ $menu->name }}</h5>
                             <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">{{ $menu->categories->name }}</span>
                         </div>
                         <div class="details mb-2 pr-5">
                             <p class="mb-2 font-semibold">Rp. @money($menu->price)</p>
-                            <p class="font-normal text-sm text-gray-700">{{ Str::limit($menu->description, 100, '...') }}</p>
+                            <p class="font-normal text-sm text-gray-700">{{ Str::limit($menu->description, 90, '...') }}</p>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 @endforeach
             </div>
         </div>
     </x-container>
 </x-app-layout>
 
-{{-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                            Read more
-                            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </a> --}}
+
+                        

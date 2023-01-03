@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap">
 
+        {{-- aos --}}
+        {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -45,5 +48,12 @@
 
         </div>
         <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+
+        {{-- aos --}}
+        {{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script> --}}
+</script>
     </body>
 </html>
