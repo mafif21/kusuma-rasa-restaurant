@@ -45,7 +45,7 @@
 
                         <td>
                             @if (!$order->status)
-                                <form action="{{ route('admin.update', $order->id) }}" method="post">
+                                <form action="{{ route('admin.edit', $order->id) }}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" value="1" name="status">
