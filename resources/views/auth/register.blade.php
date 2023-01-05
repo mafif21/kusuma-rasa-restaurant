@@ -9,7 +9,7 @@
             </div>
 
             <div class="w-3/5">
-                <form method="POST" action="{{ route('login') }}" novalidate>
+                <form method="POST" action="{{ route('register') }}" novalidate>
                     @csrf
             
                     <!-- Name -->

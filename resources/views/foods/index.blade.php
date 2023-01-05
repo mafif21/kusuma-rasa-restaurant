@@ -31,7 +31,7 @@
                 <div class="max-w-sm bg-white rounded-t-lg" id="card">
                     <div class="relative">
                         <div class="hover:bg-black opacity-40 ease-in-out duration-500 w-full h-full absolute rounded"></div>
-                        <form action="{{ route('cart.store') }}" method="post">
+                        <form action="{{ route('cart.add') }}" method="post">
                             @csrf
                             <input type="hidden" value="{{ $menu->slug }}" name="slug">
                             <button type="submit" class="px-4 py-2 text-xs font-medium text-center text-white bg-orange-400 rounded-xl absolute m-4">Add</button>

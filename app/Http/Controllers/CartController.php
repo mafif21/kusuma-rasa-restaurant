@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -14,11 +16,26 @@ class CartController extends Controller
         return view('cart.index', compact('carts'));
     }
 
-    public function store(Request $request)
+    public function addCart(Request $request)
     {
         $data = Menu::where('slug', $request->slug)->get()->first();
-        Cart::add($data->slug, $data->name, 1, $data->price);
+        Cart::add($data->slug, $data->name, 1, $data->price, 0);
 
         return to_route('food.index');
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'qty' => 'required|integer',
+            'price' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['status'] = false;
+
+        Order::create($validatedData);
+        return to_route('cart.index');
     }
 }
