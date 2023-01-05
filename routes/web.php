@@ -28,6 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add', [CartController::class, 'addCart'])->name('cart.add');
     Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
+    Route::get('/cart/destroy/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::put('/cart/update/{cart}/edit', [CartController::class, 'update'])->name('cart.update');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
