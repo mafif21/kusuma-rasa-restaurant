@@ -11,7 +11,7 @@
             <div class="mb-8">
                 <div class="flex justify-between items-center mb-4">
                     <h1 class="font-semibold text-2xl">{{ $food->name }}</h1>
-                    <h2 class="mb-2 font-semibold text-red-700">Rp. @money($food->price)</h2>
+                    <h2 class="mb-2 font-semibold text-red-400">Rp. @money($food->price)</h2>
                 </div>
                 <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">{{ $food->categories->name }}</span>
             </div>

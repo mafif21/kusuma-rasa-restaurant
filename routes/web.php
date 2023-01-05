@@ -40,6 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::put('/edit', [AdminController::class, 'update'])->name('update');
+
     Route::resource('/menu', MenuController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/table', TableController::class);

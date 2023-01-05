@@ -32,8 +32,8 @@
                             @csrf
                             @method("PUT")
                             <div class="flex">
-                                <input type="number" name="qty" class="w-20 border border-gray-300 rounded" value="{{ $cart->qty }}">
-                                <input type="submit" class="bg-blue-400 text-white py-2 px-5 rounded" value="Update">
+                                <input type="number" name="qty" class="w-20 border border-gray-300 rounded-l" value="{{ $cart->qty }}">
+                                <input type="submit" class="bg-blue-400 text-white py-2 px-5 rounded-r" value="Update">
                             </div>
                         </form>
                     </td>
@@ -41,18 +41,20 @@
                         {{ $cart->price }}
                     </td>
                     <td class="px-6 py-4">
-                        <form action="{{ route('cart.destroy', $cart->rowId) }}" method="get">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Destory</button>
-                        </form>
-                        <form action="{{ route('cart.store') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="name" value="{{ $cart->name }}">
-                            <input type="hidden" name="qty" value="{{ $cart->qty }}">
-                            <input type="hidden" name="price" value="{{ $cart->price }}">
-                            <button type="submit" class="bg-blue-400 text-white py-2 px-5 rounded">Order</button>
-                        </form>
+                        <div class="flex gap-x-3">
+                            <form action="{{ route('cart.destroy', $cart->rowId) }}" method="get">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-400 rounded text-white py-2 px-5">Delete</button>
+                            </form>
+                            <form action="{{ route('cart.store') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="name" value="{{ $cart->name }}">
+                                <input type="hidden" name="qty" value="{{ $cart->qty }}">
+                                <input type="hidden" name="price" value="{{ $cart->price }}">
+                                <button type="submit" class="bg-blue-400 rounded text-white py-2 px-5">Order</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

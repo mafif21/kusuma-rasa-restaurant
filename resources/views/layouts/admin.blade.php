@@ -38,9 +38,6 @@
                         <x-admin-nav-link :href="route('admin.reservation.index')" :active="request()->routeIs('admin.reservation.index')">
                             {{ __('Reservations') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.order.index')" :active="request()->routeIs('admin.order.index')">
-                            {{ __('Order') }}
-                        </x-admin-nav-link>
 
                         <div @click.away="open = false" class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex opacity-50 flex-row items-center w-full px-4 py-2  mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:opacity-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
