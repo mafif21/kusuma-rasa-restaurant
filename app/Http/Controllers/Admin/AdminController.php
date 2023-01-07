@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,11 @@ class AdminController extends Controller
     public function index()
     {
         $orders = Order::all();
+        // $orders = DB::table('order')->groupBy('user_id');
         // dd($orders);
+        // foreach ($orders as $order) {
+        //     dd(sum($order->price));
+        // }
         return view('admin.index', compact('orders'));
     }
 
