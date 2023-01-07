@@ -16,6 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         $orders = Order::all();
+        // dd($orders);
         return view('admin.index', compact('orders'));
     }
 
@@ -31,6 +32,12 @@ class AdminController extends Controller
         $order->update([
             "status" => $request->status
         ]);
+        return to_route('admin.index');
+    }
+
+    public function destroy(Order $order)
+    {
+        Order::destroy($order->id);
         return to_route('admin.index');
     }
 }

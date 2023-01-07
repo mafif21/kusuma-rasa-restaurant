@@ -41,6 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::put('/{order}/edit', [AdminController::class, 'update'])->name('edit');
+    Route::delete('/{order}', [AdminController::class, 'destroy'])->name('destroy');
 
     Route::resource('/menu', MenuController::class);
     Route::resource('/category', CategoryController::class);

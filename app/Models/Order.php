@@ -11,6 +11,10 @@ class Order extends Model
 
     protected $fillable = ['name', 'qty', 'price', 'status', 'user_id'];
 
+    // public function calculate()
+    // {
+    // }
+
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
