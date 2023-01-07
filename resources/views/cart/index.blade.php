@@ -52,14 +52,11 @@
                                 <button type="submit" class="bg-red-400 rounded text-white py-2 px-5">Delete</button>
                             </form>
                             <form action="{{ route('cart.store') }}" method="post">
-                                @php
-                                    $status = false;
-                                @endphp
                                 @csrf
                                 <input type="hidden" name="name" value="{{ $cart->name }}">
                                 <input type="hidden" name="qty" value="{{ $cart->qty }}">
                                 <input type="hidden" name="price" value="{{ $cart->price }}">
-                                <button type="submit" class="bg-blue-400 rounded text-white py-2 px-5" @disabled($status)>Order</button>
+                                <button type="submit" class="bg-blue-400 rounded text-white py-2 px-5">Order</button>
                             </form>
                         </div>
                     </td>
