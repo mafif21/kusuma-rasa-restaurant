@@ -17,10 +17,10 @@
                     <a href="{{route('home')}}" class="hover:text-orange-500">Home</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="hover:text-orange-500">Menus</a>
+                    <a href="{{route('food.index')}}" class="hover:text-orange-500">Menus</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="hover:text-orange-500">Categories</a>
+                    <a href="{{route('profile.edit')}}" class="hover:text-orange-500">Profile</a>
                 </li>
             </ul>
         </div>
