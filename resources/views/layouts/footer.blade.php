@@ -14,7 +14,7 @@
             <h2 class="mb-6 text-sm font-bold text-orange-500 uppercase">Quick Links</h2>
             <ul class="text-gray-500 dark:text-gray-400">
                 <li class="mb-4">
-                    <a href="#" class="hover:text-orange-500">Home</a>
+                    <a href="{{route('home')}}" class="hover:text-orange-500">Home</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="hover:text-orange-500">Menus</a>
