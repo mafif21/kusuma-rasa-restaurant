@@ -34,7 +34,7 @@
                         <form action="{{ route('cart.add') }}" method="post">
                             @csrf
                             <input type="hidden" value="{{ $menu->slug }}" name="slug">
-                            <button type="submit" class="px-4 py-2 text-xs font-medium text-center text-white bg-orange-400 rounded-xl absolute m-4">Add</button>
+                            <button type="submit" class="px-4 py-2 text-xs font-medium text-center text-white bg-orange-400 rounded-xl absolute m-4 right-0 bottom-0">Add to Cart</button>
                         </form>
                         <img class="rounded-t-lg h-48 w-full object-cover" src="{{ Storage::url($menu->image) }}" alt="card-image" />
                     </div>
