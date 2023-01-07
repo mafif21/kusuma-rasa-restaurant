@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="px-14 pt-14">
-                    <img src="{{ asset('images/container-logo.svg') }}" alt="jumbotron" class="h-80" style="">
+                    <img src="{{ asset('images/container-logo.svg') }}" alt="jumbotron" class="h-80">
                 </div>
             </div>
             
