@@ -36,8 +36,9 @@ class CartController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['status'] = false;
 
+
         Order::create($validatedData);
-        return to_route('cart.index');
+        return to_route('cart.index')->with('success', 'Order Successs');
     }
 
     public function update(Request $request, $key)
