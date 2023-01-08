@@ -16,9 +16,9 @@
                     <!-- <x-nav-link :href="route('food.index')" :active="request()->routeIs('food.index')">
                         {{ __('Menu') }}
                     </x-nav-link> -->
-                    <x-nav-link :href="route('booking.step.one')" :active="request()->routeIs('booking.step.one')">
+                    <!-- <x-nav-link :href="route('booking.step.one')" :active="request()->routeIs('booking.step.one')">
                         {{ __('Reservation') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
                     
                     @isset(auth()->user()->is_admin)
                         @if (auth()->user()->is_admin)
@@ -61,8 +61,8 @@
                                     {{ __('Menu') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Profile') }}
+                                <x-dropdown-link :href="route('booking.step.one')">
+                                    {{ __('Reservation') }}
                                 </x-dropdown-link>
     
                                 <!-- Authentication -->
