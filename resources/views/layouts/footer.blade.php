@@ -44,10 +44,10 @@
           <h2 class="mb-6 text-sm font-bold text-orange-500 uppercase">Contact</h2>
           <ul class="text-gray-500 dark:text-gray-400">
               <li class="mb-4">
-                  <a href="#" class="hover:text-orange-500">Careers</a>
+                  <a href="#" class="hover:text-orange-500">About Us</a>
               </li>
               <li class="mb-4">
-                  <a href="#" class="hover:text-orange-500">Brand Center</a>
+                  <a href="#" class="hover:text-orange-500">Call Center </a>
               </li>
               <li class="mb-4">
                   <a href="#" class="hover:text-orange-500">Blog</a>
