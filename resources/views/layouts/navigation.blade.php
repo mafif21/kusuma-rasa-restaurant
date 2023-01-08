@@ -38,7 +38,7 @@
                         {{ Gloudemans\Shoppingcart\Facades\Cart::count() }} Items
                     </a>
                     
-                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <div class="sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="inline-flex items-center px-5 py-3 border border-transparent text-sm leading-4 font-medium rounded-md {{ request()->routeIs('home') ? 'backdrop-blur-md text-gray-200 hover:text-white' : 'text-slate-900 font-semibold opacity-50 hover:opacity-100' }} transition ease-in-out duration-150">
