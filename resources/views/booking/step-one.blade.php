@@ -2,7 +2,7 @@
   <x-slot name="title">Menu</x-slot>
 
   <x-container>
-      <div class="grid grid-cols-2 shadow-lg rounded">
+      <div class="grid lg:grid-cols-2 shadow-lg rounded">
         <div>
           <img class="object-cover w-full h-full" src="https://cdn.pixabay.com/photo/2021/01/15/17/01/green-5919790__340.jpg" alt="img" />
         </div>
