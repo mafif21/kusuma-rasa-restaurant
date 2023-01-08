@@ -18,7 +18,7 @@
 
         <div>
             <div class="flex justify-between items-center mb-6 lg:flex-row flex-col">
-                <h1 class="text-2xl font-semibold lg:mb-0 mb-10">All Menus</h1>
+                <h1 class="text-2xl font-semibold lg:mb-0 mb-10 text-slate-900">All Menus</h1>
                 
                 <div>
                     <input type="text" id="menu-search" class="block p-3 pl-4 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-200 focus:border-gray-200 border-gray-100 placeholder-gray-400 " placeholder="Search Menu" >
