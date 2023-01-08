@@ -5,8 +5,8 @@
     <div class="flex lg:flex-row flex-col">
       <div class="flex flex-col lg:items-start items-center text-left px-6">
         <img src="{{ asset('images/logo.png') }}" alt="" class="w-40 h-40">
-        <p class="text-center lg:text-left w-80 text-sm lg:ml-10 lg:mb-0 mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, sunt?.</p>
-        <p class="text-center lg:text-left w-80 text-gray-400 text-xs lg:mt-4 lg:ml-10">Stand Of Years 2000 Until Now</p>
+        <p class="text-center lg:text-left w-80 text-sm lg:ml-10 lg:mb-0 mb-5">Jl. Telekomunikasi No. 1, Terusan Buahbatu, Bojongsoang</p>
+        <p class="text-center lg:text-left w-80 text-gray-400 text-xs lg:mt-4 lg:ml-10">Berdiri Sejak Tahun 2000</p>
       </div>
 
       <div class="grid grid-cols-1 gap-8 py-12 lg:grid-cols-3 justify-items-center lg:grow lg:px-0 px-6">
