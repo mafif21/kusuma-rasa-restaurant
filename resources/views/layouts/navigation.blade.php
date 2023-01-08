@@ -13,9 +13,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('food.index')" :active="request()->routeIs('food.index')">
+                    <!-- <x-nav-link :href="route('food.index')" :active="request()->routeIs('food.index')">
                         {{ __('Menu') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
                     <x-nav-link :href="route('booking.step.one')" :active="request()->routeIs('booking.step.one')">
                         {{ __('Reservation') }}
                     </x-nav-link>
@@ -53,6 +53,14 @@
                             </x-slot>
     
                             <x-slot name="content">
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{ __('Profile') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('food.index')">
+                                    {{ __('Menu') }}
+                                </x-dropdown-link>
+
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
