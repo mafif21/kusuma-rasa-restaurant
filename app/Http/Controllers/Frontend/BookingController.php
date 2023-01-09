@@ -39,7 +39,8 @@ class BookingController extends Controller
             $request->session()->put('reservation', $reservation);
         } else {
             $reservation = $request->session()->get('reservation');
-           
+            $reservation->fill($validateData);
+            $request->session()->put('reservation', $reservation);
         }
 
         return to_route('booking.step.two');
