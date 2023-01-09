@@ -57,6 +57,11 @@ class BookingController extends Controller
         })->pluck('table_id');
 
         // filtering table
-    
+        $tables = Table::where('status', TableStatus::Available)
+            ->where('guest_number', '>=', $reservation->guest_number)
+            ->whereNotIn('id', $res_table)->get();
+
+
+      
     }
 }
