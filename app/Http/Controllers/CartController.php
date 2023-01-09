@@ -19,7 +19,7 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
-        $data = Menu::where('slug', $request->slug)->get()->first();
+        
         Cart::add($data->slug, $data->name, 1, $data->price, 0);
 
         return to_route('food.index');
