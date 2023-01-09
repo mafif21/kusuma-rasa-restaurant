@@ -70,5 +70,9 @@ class BookingController extends Controller
             "table_id" => ['required'],
         ]);
 
+
+        $reservation = $request->session()->get('reservation');
+        $reservation->fill($validateData);
+   
     }
 }
