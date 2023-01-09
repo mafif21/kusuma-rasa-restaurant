@@ -37,7 +37,7 @@
                             {{ $category->name }}
                         </th>
                         <td class="py-4 px-6">
-                            <img src="{{ Storage::url($category->image) }}" alt="category img" class="w-60 rounded">
+                            <img src="{{ asset('storage/'.$category->image) }}" alt="category img" class="w-60 rounded">
                         </td>
                         <td class="py-4 px-6">
                             {{ Str::limit($category->description, 120, '...') }}

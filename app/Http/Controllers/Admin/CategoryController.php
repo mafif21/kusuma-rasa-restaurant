@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.category.index', compact('categories'));  
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/categories');
+        $image = $request->file('image')->store('categories');
 
         $validate = [
             "name" => $request->name,
@@ -52,7 +52,7 @@ class CategoryController extends Controller
         return to_route('admin.category.index')->with('success', 'Add Category Success');
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -83,7 +83,7 @@ class CategoryController extends Controller
         $image = $category->image;
         if ($request->hasFile('image')) {
             Storage::delete($category->image);
-            $image = $request->file('image')->store('public/categories'); 
+            $image = $request->file('image')->store('categories');
         }
 
         $category->update([

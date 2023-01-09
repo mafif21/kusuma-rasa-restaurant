@@ -41,7 +41,7 @@ class MenuController extends Controller
      */
     public function store(MenuStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/menus');
+        $image = $request->file('image')->store('menus');
 
         $validate = [
             "name" => $request->name,
@@ -51,16 +51,11 @@ class MenuController extends Controller
             "category_id" => $request->category
         ];
 
-        // $menu = Menu::create($validate);
-        // if ($request->has('category')) {
-        //     $menu->categories()->attach($request->category);
-        // }
-
         Menu::create($validate);
         return to_route('admin.menu.index')->with('success', 'Add Menu Success');
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -93,7 +88,7 @@ class MenuController extends Controller
         $image = $menu->image;
         if ($request->hasFile('image')) {
             Storage::delete($menu->image);
-            $image = $request->file('image')->store('public/menus');
+            $image = $request->file('image')->store('menus');
         }
 
         $menu->update([
@@ -103,10 +98,6 @@ class MenuController extends Controller
             "price" => $request->price,
             "category_id" => $request->category
         ]);
-
-        // if ($request->has('category')) {
-        //     $menu->categories()->sync($request->category);
-        // }
 
         return to_route('admin.menu.index')->with('edit', 'Edit Menu Success');
     }
@@ -124,8 +115,6 @@ class MenuController extends Controller
         };
 
         Menu::destroy($menu->id);
-        // $menu->categories()->detach($menu->categories);
-
         return to_route('admin.menu.index')->with('delete', 'Delete Menu Success');
     }
 }

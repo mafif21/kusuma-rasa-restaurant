@@ -43,7 +43,7 @@
                             {{ $menu->name }}
                         </th>
                         <td class="py-4 px-6">
-                            <img src="{{ Storage::url($menu->image) }}" alt="menu img" class="w-20 rounded">
+                            <img src="{{ asset('storage/'.$menu->image) }}" alt="menu img" class="w-20 rounded">
                         </td>
                         <td class="py-4 px-6">
                             {{ $menu->categories->name }}
@@ -52,7 +52,7 @@
                             Rp. @money($menu->price)
                         </td>
                         <td class="py-4 px-6">
-                            {{ $menu->description }}
+                            {{ Str::limit($menu->description, 120, '...') }}
                         </td>
                         <td class="py-4 px-6">
                             <div class="flex gap-4 items-center">
