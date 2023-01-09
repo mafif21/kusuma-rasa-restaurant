@@ -45,4 +45,16 @@ class BookingController extends Controller
 
         return to_route('booking.step.two');
     }
+    
+    public function stepTwo(Request $request)
+    {
+        // session data from step 1
+        $reservation = $request->session()->get('reservation');
+
+        // check available date
+ 
+
+        // filtering table
+    
+    }
 }
