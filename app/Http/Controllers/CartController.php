@@ -25,6 +25,22 @@ class CartController extends Controller
         return to_route('food.index');
     }
 
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'qty' => 'required|integer',
+            'price' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['status'] = false;
+
+
+        Order::create($validatedData);
+        return to_route('cart.index')->with('success', 'Order Successs');
+    }
+    
     public function update(Request $request, $key)
     {
         Cart::update($key, array(
