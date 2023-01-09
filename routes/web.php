@@ -46,6 +46,8 @@ Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/menu', MenuController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/table', TableController::class);
+    Route::resource('/reservation', ReservationController::class);
+
 });
 
 require __DIR__ . '/auth.php';
