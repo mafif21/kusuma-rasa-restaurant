@@ -1,6 +1,6 @@
 <div class="max-w-sm rounded-lg" >
   <div>
-      <img class="rounded-t-lg object-cover max-h-56 w-full" src="{{ $imageLink }}" alt="card image" />
+      <img class="rounded-t-lg object-cover max-h-56 w-full" src="/storage{{ $imageLink }}" alt="card image" />
   </div>
       
   <div class="py-5 pr-5">
