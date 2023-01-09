@@ -60,16 +60,7 @@ class MenuController extends Controller
         return to_route('admin.menu.index')->with('success', 'Add Menu Success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Menu $menu)
-    {
-        dd($menu);
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
