@@ -22,4 +22,18 @@ class BookingController extends Controller
 
         return view('booking.step-one', compact('reservation', 'min_date', 'max_date'));
     }
+    public function storeStepOne(Request $request)
+    {
+        $validateData = $request->validate([
+            "first_name" => ['required'],
+            "last_name" => ['required'],
+            "email" => ['required', 'email:dns'],
+            "phone" => ['required'],
+            "res_date" => ['required', 'date', new DateRule, new TimeRule],
+            "guest_number" => ['required', 'integer'],
+        ]);
+
+        
+        return to_route('booking.step.two');
+    }
 }
