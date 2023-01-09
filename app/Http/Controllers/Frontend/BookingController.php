@@ -35,7 +35,8 @@ class BookingController extends Controller
 
         if (empty($request->session()->get('reservation'))) {
             $reservation = new Reservation();
-         
+            $reservation->fill($validateData);
+            $request->session()->put('reservation', $reservation);
         } else {
             $reservation = $request->session()->get('reservation');
            
