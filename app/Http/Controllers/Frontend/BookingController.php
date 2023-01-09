@@ -74,6 +74,8 @@ class BookingController extends Controller
         $reservation = $request->session()->get('reservation');
         $reservation->fill($validateData);
         $reservation->save();
- 
+        $request->session()->forget('reservation');
+
+        return to_route('home');
     }
 }
