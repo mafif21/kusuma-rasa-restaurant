@@ -1,6 +1,10 @@
 <x-guest-layout>
+    <x-slot name="title">Register</x-slot>
+
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    @if (session()->has('status'))
+        <x-success-alert statusText="{{ session('status') }}"></x-success-alert>
+    @endif
 
     <div class="grid lg:grid-cols-2 items-center">
         <div class=" flex flex-col items-center w-full">

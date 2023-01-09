@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <x-slot name="title">Forgot Password</x-slot>
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="grid place-items-center lg:h-screen">
             <div class="shadow-md py-10 px-8 rounded border border-orange-400">
