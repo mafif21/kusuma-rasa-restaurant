@@ -6,6 +6,22 @@ E-business is all business activities via the internet as a medium of communicat
 
 Therefore, the development of information technology at Warung Lamongan, Ibu Atun, can make the restaurant have attractive and more efficient services so that it can attract more customers and reduce the owner's workload.</p>
 
+## How To Clone Project
+
+<ol>
+  <li>git clone [this url code]</li>
+  <li>composer install</li>
+  <li>Make sure you have npm and then you can type "npm run dev"</li>
+  <li>Copy env example</li>
+  <li>Make new file at root folder with name ".env"</li>
+  <li>Paste your copied text at .env</li>
+  <li>Check at config/app.php and then you can find provider array</li>
+  <li>Make sure at provider array have "Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class" in the last line [for cart]</li>
+  <li>After that you can find aliases array in the same folder which is app.php</li>
+  <li>Make sure at aliases array have "Cart => Gloudemans\Shoppingcart\Facades\Cart::class" in the last line [for cart]</li>
+  <li>Finish ... </li>
+</ol>
+
 ## Team Project
 
 <ul>
