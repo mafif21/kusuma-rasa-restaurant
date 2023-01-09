@@ -6,7 +6,7 @@ use App\Enums\TableLocation;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Enums\TableStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+
 
 class Table extends Model
 {
