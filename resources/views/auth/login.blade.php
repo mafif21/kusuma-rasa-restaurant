@@ -1,6 +1,7 @@
 <x-guest-layout>
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-success-alert statusText="{{ session('status') }}"></x-success-alert>
+    {{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
 
     <div class="grid lg:grid-cols-2 items-center">
         <div class=" flex flex-col items-center w-full">
