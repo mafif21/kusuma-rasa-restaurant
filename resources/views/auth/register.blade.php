@@ -2,13 +2,13 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="grid grid-cols-2 items-center">
+    <div class="grid lg:grid-cols-2 items-center">
         <div class=" flex flex-col items-center w-full">
             <div>
                 <img src="{{ asset('images/logo.png') }}" alt="logo" class="w-64 h-64">
             </div>
 
-            <div class="w-3/5">
+            <div class="lg:w-3/5">
                 <form method="POST" action="{{ route('register') }}" novalidate>
                     @csrf
             
@@ -50,8 +50,8 @@
                     </div>
 
                     <div class="flex items-center justify-end mt-4">
-                        <small>Already have account?</small> &nbsp;
-                        <a class="text-decoration-none text-sm text-orange-600 hover:font-semibold rounded-md focus:outline-none" href="{{ route('login') }}">
+                        <small class="text-xs lg:text-sm">Already have account?</small> &nbsp;
+                        <a class="text-decoration-none text-xs lg:text-sm text-orange-600 hover:font-semibold rounded-md focus:outline-none" href="{{ route('login') }}">
                             {{ __('Login') }}
                         </a>
 
@@ -63,16 +63,9 @@
             </div>
         </div>
 
-        <div class="p-5">
+        <div class="p-5 hidden lg:block">
             <img src="{{ asset('images/starter/login.jpg') }}" alt="login" class="rounded-lg w-full">
         </div>
     </div>
 </x-guest-layout>
 
-
-
-{{-- <form method="POST" action="{{ route('register') }}" novalidate>
-    @csrf
-
-    
-</form> --}}

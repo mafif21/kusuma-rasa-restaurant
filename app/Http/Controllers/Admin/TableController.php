@@ -49,16 +49,7 @@ class TableController extends Controller
         return to_route('admin.table.index')->with('success', 'Add Table Success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Table  $table
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Table $table)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

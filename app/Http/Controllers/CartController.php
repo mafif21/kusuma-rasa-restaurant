@@ -40,7 +40,7 @@ class CartController extends Controller
         Order::create($validatedData);
         return to_route('cart.index')->with('success', 'Order Successs');
     }
-
+    
     public function update(Request $request, $key)
     {
         Cart::update($key, array(

@@ -6,7 +6,6 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center font-semibold text-xl">
                     <a href="{{ route('home') }}">
-                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-red-800" /> --}}
                         Kusuma Rasa
                     </a>
                 </div>
@@ -33,12 +32,12 @@
             @auth
                 <!-- Settings Dropdown -->
                 <div class="flex items-center">
-                    <a href="{{ route('cart.index') }}" class="flex gap-x-2 items-center font-semibold {{ request()->routeIs('home') ? 'hidden' : '' }}">
+                    <a href="{{ route('cart.index') }}" class="hidden lg:block lg:flex gap-x-2 items-center font-semibold {{ request()->routeIs('home') ? 'lg:hidden' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>
                         {{ Gloudemans\Shoppingcart\Facades\Cart::count() }} Items
                     </a>
                     
-                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <div class="sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="inline-flex items-center px-5 py-3 border border-transparent text-sm leading-4 font-medium rounded-md {{ request()->routeIs('home') ? 'backdrop-blur-md text-gray-200 hover:text-white' : 'text-slate-900 font-semibold opacity-50 hover:opacity-100' }} transition ease-in-out duration-150">
@@ -55,6 +54,18 @@
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('food.index')">
+                                    {{ __('Menu') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('booking.step.one')">
+                                    {{ __('Reservation') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('cart.index')">
+                                    {{ __('Cart ') }}
                                 </x-dropdown-link>
     
                                 <!-- Authentication -->
