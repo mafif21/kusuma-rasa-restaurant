@@ -62,6 +62,6 @@ class BookingController extends Controller
             ->whereNotIn('id', $res_table)->get();
 
 
-      
+        return view('booking.step-two', compact('tables'));
     }
 }
