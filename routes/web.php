@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Admin\ReservationController;
 
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/food', [FoodController::class, 'index'])->name('food.index');
