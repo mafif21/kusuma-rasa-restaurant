@@ -74,7 +74,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
- 
+        $request->validate([
+            "name" => "required",
+            "image" => "file|image",
+            "description" => "required",
+        ]);
+
+        $image = $category->image;
+        if ($request->hasFile('image')) {
+            Storage::delete($category->image);
+            $image = $request->file('image')->store('public/categories');
+        }
+
+        $category->update([
+            "name" => $request->name,
+            "image" => $image,
+            "description" => $request->description,
+        ]);
+
+        return to_route('admin.category.index')->with('edit', 'Edit Category Success');
     }
 
     /**
