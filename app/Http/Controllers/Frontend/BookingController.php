@@ -15,6 +15,11 @@ class BookingController extends Controller
 {
     public function stepOne(Request $request)
     {
-        
+        // data if user go previous
+        $reservation = $request->session()->get('reservation');
+        $min_date = Carbon::today();
+        $max_date = Carbon::now()->addWeek();
+
+      
     }
 }
