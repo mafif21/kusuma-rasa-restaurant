@@ -13,4 +13,8 @@ use App\Http\Controllers\Controller;
 
 class BookingController extends Controller
 {
+    public function stepOne(Request $request)
+    {
+        
+    }
 }
