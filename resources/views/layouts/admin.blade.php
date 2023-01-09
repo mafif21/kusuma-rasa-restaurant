@@ -26,16 +26,16 @@
                     </button>
                 </div>
                     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                        <x-admin-nav-link :href="route('admin.menu.index')" :active="request()->routeIs('admin.menu.index')">
+                        <x-admin-nav-link :href="route('admin.menu.index')" :active="request()->routeIs('admin.menu**')">
                             {{ __('Menu') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category*.index')">
+                        <x-admin-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category**')">
                             {{ __('Categories') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.table.index')" :active="request()->routeIs('admin.table.index')">
+                        <x-admin-nav-link :href="route('admin.table.index')" :active="request()->routeIs('admin.table**')">
                             {{ __('Tables') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.reservation.index')" :active="request()->routeIs('admin.reservation.index')">
+                        <x-admin-nav-link :href="route('admin.reservation.index')" :active="request()->routeIs('admin.reservation**')">
                             {{ __('Reservations') }}
                         </x-admin-nav-link>
 
