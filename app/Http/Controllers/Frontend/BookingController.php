@@ -52,7 +52,9 @@ class BookingController extends Controller
         $reservation = $request->session()->get('reservation');
 
         // check available date
- 
+        $res_table = Reservation::orderBy('res_date')->get()->filter(function ($value) use ($reservation) {
+            return $value->res_date->format('Y-m-d') == $reservation->res_date->format('Y-m-d');
+        })->pluck('table_id');
 
         // filtering table
     
