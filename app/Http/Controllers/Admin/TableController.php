@@ -46,7 +46,7 @@ class TableController extends Controller
         ];
 
         Table::create($validate);
-        
+        return to_route('admin.table.index')->with('success', 'Add Table Success');
     }
 
     
