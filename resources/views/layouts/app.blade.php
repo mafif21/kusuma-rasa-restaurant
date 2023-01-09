@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased flex flex-col">
         <div class="min-h-screen bg-white">
         <div class="{{ request()->routeIs('home') ? 'bg-cover bg-bottom bg-fixed bg-hero-image' : '' }}" >
                 @include('layouts.navigation')

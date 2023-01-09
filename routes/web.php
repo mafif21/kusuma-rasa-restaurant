@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Route::view('/about', 'about')->name('about');
+    Route::view('/thankyou', 'thankyou')->name('thankyou');
 });
 
 Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
@@ -47,7 +47,6 @@ Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/category', CategoryController::class);
     Route::resource('/table', TableController::class);
     Route::resource('/reservation', ReservationController::class);
-
 });
 
 require __DIR__ . '/auth.php';

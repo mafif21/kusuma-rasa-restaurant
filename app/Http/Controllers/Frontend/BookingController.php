@@ -27,7 +27,7 @@ class BookingController extends Controller
         $validateData = $request->validate([
             "first_name" => ['required'],
             "last_name" => ['required'],
-            "email" => ['required', 'email:dns'],
+            "email" => ['required', 'email'],
             "phone" => ['required'],
             "res_date" => ['required', 'date', new DateRule, new TimeRule],
             "guest_number" => ['required', 'integer'],
@@ -45,7 +45,7 @@ class BookingController extends Controller
 
         return to_route('booking.step.two');
     }
-    
+
     public function stepTwo(Request $request)
     {
         // session data from step 1
@@ -76,6 +76,6 @@ class BookingController extends Controller
         $reservation->save();
         $request->session()->forget('reservation');
 
-        return to_route('home');
+        return to_route('thankyou');
     }
 }

@@ -1,5 +1,5 @@
 
-<footer class="p-2 bg-gray-100 sm:p-6">
+<footer class="p-2 bg-gray-100 sm:p-6 ">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
     <div class="flex lg:flex-row flex-col">
