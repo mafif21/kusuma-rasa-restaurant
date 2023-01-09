@@ -73,6 +73,7 @@ class BookingController extends Controller
 
         $reservation = $request->session()->get('reservation');
         $reservation->fill($validateData);
-   
+        $reservation->save();
+ 
     }
 }
