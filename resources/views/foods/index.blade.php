@@ -6,7 +6,7 @@
             <div class="w-full h-full bg-orange-100 flex justify-between items-center rounded">
                 <div class="w-1/3 px-14">
                     <h1 class="font-normal text-5xl text-black mb-6">Customer is King</h1>
-                    <p class="text-sm text-secondary opacity-50">Sebagai penyedia layanan,kepuasan pelanggan adalah No.1 bagi kami,kami menyediakan bahan makanan yang terjamin sehat,segar, dan tentunya nikmat.</p>
+                    <p class="text-sm text-secondary opacity-50">Sebagai penyedia layanan,kepuasan pelanggan adalah No.1 bagi kami,kami menyediakan makanan yang terjamin sehat,segar, dan tentunya nikmat.</p>
                 </div>
 
                 <div class="px-14 pt-14">
