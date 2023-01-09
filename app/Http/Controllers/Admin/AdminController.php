@@ -40,4 +40,9 @@ class AdminController extends Controller
         return to_route('admin.index');
     }
 
+    public function destroy(Order $order)
+    {
+        Order::destroy($order->id);
+        return to_route('admin.index');
+    }
 }
