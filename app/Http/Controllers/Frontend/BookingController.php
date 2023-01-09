@@ -33,7 +33,14 @@ class BookingController extends Controller
             "guest_number" => ['required', 'integer'],
         ]);
 
-        
+        if (empty($request->session()->get('reservation'))) {
+            $reservation = new Reservation();
+         
+        } else {
+            $reservation = $request->session()->get('reservation');
+           
+        }
+
         return to_route('booking.step.two');
     }
 }
