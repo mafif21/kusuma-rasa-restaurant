@@ -17,8 +17,9 @@ class BookingController extends Controller
     {
         // data if user go previous
         $reservation = $request->session()->get('reservation');
+        $min_date = Carbon::today();
+        $max_date = Carbon::now()->addWeek();
 
-
-      
+        return view('booking.step-one', compact('reservation', 'min_date', 'max_date'));
     }
 }
