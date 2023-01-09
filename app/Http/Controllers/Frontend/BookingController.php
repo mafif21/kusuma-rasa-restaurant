@@ -64,4 +64,11 @@ class BookingController extends Controller
 
         return view('booking.step-two', compact('tables'));
     }
+    public function storeStepTwo(Request $request)
+    {
+        $validateData = $request->validate([
+            "table_id" => ['required'],
+        ]);
+
+    }
 }
