@@ -14,11 +14,4 @@ class Admin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
-    {
-        if (!auth()->check() || auth()->user()->is_admin == 0) {
-            abort(403);
-        }
-        return $next($request);
-    }
 }
