@@ -40,7 +40,7 @@
             <h1 class="font-black text-3xl text-center">Categories Of Food</h1>
             <div class="grid lg:grid-cols-3 my-6 gap-y-8 justify-items-center px-4">
                 @foreach ($categories as $category)
-                    <x-card-categories imageLink="{{ asset('storage/'.$category->image) }}" title="{{ $category->name }}" desc="{{ $category->description }}" foodCategory="{{ $category->slug }}"></x-card-categories>
+                    <x-card-categories imageLink="{{ asset('storage/'.$category->image) }}" title="{{ $category->name }}" desc="{{ Str::limit($category->description, 100, '...') }}" foodCategory="{{ $category->slug }}"></x-card-categories>
                 @endforeach
             </div>
         </div>
