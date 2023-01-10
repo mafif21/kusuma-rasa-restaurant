@@ -4,7 +4,7 @@
   <x-container>
       <div class="grid grid-cols-2">
           <div class="image">
-            <img class="rounded shadow-lg h-96 w-full object-cover" src="{{ Storage::url($food->image) }}" alt="card-image" />
+            <img class="rounded shadow-lg h-96 w-full object-cover" src="{{ asset('storage/'.$food->image) }}" alt="card-image" />
           </div>
 
           <div class="detail px-8">
